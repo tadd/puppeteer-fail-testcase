@@ -1,0 +1,28 @@
+{
+  "name": "puppeteer-fail-testcase",
+  "version": "1.0.0",
+  "description": "just a test for my learing",
+  "main": "lib/a.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "puppeteer": "^1.11.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadd/puppeteer-fail-testcase.git"
+  },
+  "author": "Tadashi Saito <tad.a.digger@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tadd/puppeteer-fail-testcase/issues"
+  },
+  "homepage": "https://github.com/tadd/puppeteer-fail-testcase#readme"
+}
