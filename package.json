@@ -2,7 +2,7 @@
   "name": "puppeteer-fail-testcase",
   "version": "1.0.0",
   "description": "just a test for my learing",
-  "main": "lib/a.js",
+  "module": "lib/a.mjs",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -10,10 +10,11 @@
   "dependencies": {},
   "devDependencies": {
     "mocha": "^5.2.0",
+    "patch-package": "^5.1.1",
     "puppeteer": "^1.11.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/*.mjs"
   },
   "repository": {
     "type": "git",

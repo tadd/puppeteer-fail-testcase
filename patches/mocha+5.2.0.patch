@@ -1,0 +1,35 @@
+patch-package
+--- a/node_modules/mocha/lib/mocha.js
++++ b/node_modules/mocha/lib/mocha.js
+@@ -241,15 +241,15 @@ Mocha.prototype.ui = function(name) {
+  *
+  * @api private
+  */
+-Mocha.prototype.loadFiles = function(fn) {
++Mocha.prototype.loadFiles = async function(fn) {
+   var self = this;
+   var suite = this.suite;
+-  this.files.forEach(function(file) {
++  for await (let file of this.files) {
+     file = path.resolve(file);
+     suite.emit('pre-require', global, file, self);
+-    suite.emit('require', require(file), file, self);
++    suite.emit('require', await import(file), file, self);
+     suite.emit('post-require', global, file, self);
+-  });
++  }
+   fn && fn();
+ };
+ 
+@@ -571,9 +571,9 @@ Mocha.prototype.forbidPending = function() {
+  * @param {Function} fn
+  * @return {Runner}
+  */
+-Mocha.prototype.run = function(fn) {
++Mocha.prototype.run = async function(fn) {
+   if (this.files.length) {
+-    this.loadFiles();
++    await this.loadFiles();
+   }
+   var suite = this.suite;
+   var options = this.options;
